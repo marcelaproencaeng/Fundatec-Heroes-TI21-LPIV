@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import br.com.fundatecheroesti21.login.view.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(saveInstanceState: Bundle?) {
