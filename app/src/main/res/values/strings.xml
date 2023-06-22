@@ -19,28 +19,16 @@
     <string name="selector">selector</string>
     <string name="description">description</string>
     <string name="inserir_personagem">inserir personagem</string>
-    <string-array name="heroes_Marvel_Dc_array">
-        <item>Spider-Man</item>
-        <item>DeadPool</item>
-        <item>Thor</item>
-        <item>Capitão-America</item>
-        <item>X-Men</item>
-        <item>Hulk</item>
-        <item>Wolverine</item>
-        <item>Pantera-Negra</item>
+    <string name="character_error_message">Preeencha os campos para criar um novo personagem</string>
+    <string-array name="heroes_marvel_dc_array">
+        <item>Selecione um universo</item>
+        <item>Marvel</item>
+        <item>DC</item>
     </string-array>
-    <string-array name="heroes_Villains_array">
-        <item>Batman</item>
-        <item>Superman</item>
-        <item>The Flash</item>
-        <item>Batgirl</item>
-        <item>Aquaman</item>
-        <item>Coringa</item>
-        <item>Arlequina</item>
-        <item>Supergirl</item>
-        <item>Lanterna Verde</item>
-        <item>Robin</item>
-        <item>Hera Venenosa</item>
+    <string-array name="heroes_villains_array">
+        <item>Selecione uma categoria</item>
+        <item>Herói</item>
+        <item>Vilão</item>
     </string-array>
 </resources>
 
