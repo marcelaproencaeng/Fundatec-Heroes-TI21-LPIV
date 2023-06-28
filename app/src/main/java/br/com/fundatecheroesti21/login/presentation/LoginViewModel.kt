@@ -3,9 +3,14 @@ package br.com.fundatecheroesti21.login.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import br.com.fundatecheroesti21.login.domain.LoginUseCase
 import br.com.fundatecheroesti21.login.presentation.model.LoginViewState
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
+
+    private val useCase by lazy { LoginUseCase() }
     private val viewState = MutableLiveData<LoginViewState>()
     val state: LiveData<LoginViewState> = viewState
 
@@ -30,6 +35,13 @@ class LoginViewModel : ViewModel() {
     }
 
     private fun fetchLogin(email: String, password: String) {
-        viewState.value = LoginViewState.ShowHomeScreen
+        viewModelScope.launch {
+            val isSuccess = useCase.login(email = email, password = password)
+            if (isSuccess) {
+                viewState.value = LoginViewState.ShowHomeScreen
+            } else {
+                viewState.value = LoginViewState.ShowErrorMessage
+            }
+        }
     }
 }
