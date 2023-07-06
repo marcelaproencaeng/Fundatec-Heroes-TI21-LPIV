@@ -1,10 +1,6 @@
 package br.com.fundatecheroesti21.login.data.remote
 
-import com.squareup.moshi.JsonClass
-
-@JsonClass(generateAdapter = true)
-data class LoginResponse(
-    val id: Int,
+data class UserRequest(
     val name: String,
     val email: String,
     val password: String,
