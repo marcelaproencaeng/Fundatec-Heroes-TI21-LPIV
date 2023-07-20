@@ -1,8 +1,10 @@
 package br.com.fundatecheroesti21.profile.presentation
 
+import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.fundatecheroesti21.login.view.LoginActivity
 
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 
@@ -36,6 +38,7 @@ class ProfileViewModel : ViewModel() {
     }
 
     private fun fetchLogin(name: String, email: String, password: String) {
-        viewS.value = ProfileViewState.ShowHomeScreen
+        viewS.value = ProfileViewState.ShowLoginScreen
     }
+
 }

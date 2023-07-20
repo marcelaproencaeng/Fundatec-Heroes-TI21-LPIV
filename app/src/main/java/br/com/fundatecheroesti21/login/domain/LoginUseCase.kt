@@ -9,4 +9,16 @@ class LoginUseCase {
         return repository.login(email = email, password = password)
     }
 
+    suspend fun isUserExist(userExists: Boolean): Boolean {
+        repository.userCheckExists(userExists);
+        return userExists
+    }
+
+    suspend fun validateLogin(isTimeMaior: Boolean): Boolean {
+        repository.validateCache(isTimeMaior)
+        return isTimeMaior
+
+
+    }
+
 }

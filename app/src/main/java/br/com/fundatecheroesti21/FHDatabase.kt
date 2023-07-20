@@ -1,8 +1,14 @@
 package br.com.fundatecheroesti21
 
+import androidx.databinding.adapters.Converters
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import retrofit2.Converter
 
+@Database(entities = [UserEntity::class], version = 2)
+@TypeConverters(Converters::class)
 abstract class FHDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 

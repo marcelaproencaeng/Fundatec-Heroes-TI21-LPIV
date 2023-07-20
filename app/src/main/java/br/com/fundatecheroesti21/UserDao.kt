@@ -3,6 +3,7 @@ package br.com.fundatecheroesti21
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import java.util.*
 
 @Dao
 interface UserDao {
@@ -11,5 +12,10 @@ interface UserDao {
 
     @Query("SELECT * from  userTable")
     fun getUser(): List<UserEntity>
+
+    @Query("SELECT dataLog FROM userTable")
+    fun getCache(): Date
+    @Query("DELETE dataLog FROM userTable ")
+    fun deletarCache()
 
 }

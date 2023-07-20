@@ -15,6 +15,7 @@ import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
+import java.util.*
 
 class LoginRepository {
     private val database: FHDatabase by lazy {
@@ -89,5 +90,30 @@ class LoginRepository {
             }
 
         }
+    }
+
+    suspend fun validateCache(isTimeMaior: Boolean) {
+        val user: List<UserEntity> = database.userDao().getUser()
+        val dataCacheResponse = database.userDao().getCache().time
+        val dataNow = Date().time
+        val diff = dataNow - dataCacheResponse
+        val secondsTime = diff / 1000
+        val minutesTime = secondsTime / 60
+        if (minutesTime > 10) {
+            cleanCache(user, isTimeMaior)
+        }
+    }
+
+    suspend fun userCheckExists(userExists: Boolean): Boolean {
+        val user = database.userDao().getUser()
+        if (user == null) {
+            return !userExists
+        }
+        return true
+    }
+
+    private suspend fun cleanCache(user: List<UserEntity>, isTimeMenor: Boolean): Boolean {
+        database.userDao().deletarCache()
+        return !isTimeMenor;
     }
 }

@@ -11,6 +11,7 @@ import br.com.fundatecheroesti21.profile.presentation.ProfileViewModel
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import br.com.fundatecheroesti21.R
 import br.com.fundatecheroesti21.databinding.ActivityProfileBinding
+import br.com.fundatecheroesti21.login.view.LoginActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
@@ -38,12 +39,13 @@ class ProfileActivity : AppCompatActivity() {
     private fun initializeObserver() {
         viewModel.s.observe(this) { viewS ->
             when (viewS) {
-                ProfileViewState.ShowHomeScreen -> showHome()
+                ProfileViewState.ShowNameErrorMessage -> showNameError()
                 ProfileViewState.ShowErrorMessage -> showSnackError()
                 ProfileViewState.ShowNameErrorMessage -> showNameError()
                 ProfileViewState.ShowEmailErrorMessage -> showEmailError()
                 ProfileViewState.ShowPasswordErrorMessage -> showPasswordError()
                 ProfileViewState.ShowLoading -> showLoading()
+                ProfileViewState.ShowLoginScreen -> showLogin()
             }
         }
     }
@@ -73,12 +75,13 @@ class ProfileActivity : AppCompatActivity() {
         Snackbar.make(binding.root, R.string.login_error_message, Snackbar.LENGTH_LONG).show()
     }
 
-    private fun showHome() {
+    private fun showLogin() {
         binding.pbLoading.hide()
-        val intent = Intent(this@ProfileActivity, CharacterActivity::class.java)
-        startActivity(intent)
+
         finish()
     }
+
+
     // fun main (args : Array<String>){
     //   val chars = listOf<String>("@",".com")
     // val pattern ="@".toRegex()
