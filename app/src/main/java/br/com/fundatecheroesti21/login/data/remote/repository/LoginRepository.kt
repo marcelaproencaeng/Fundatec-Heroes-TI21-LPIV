@@ -3,7 +3,7 @@ package br.com.fundatecheroesti21.login.data.remote.repository
 
 import android.util.Log
 
-import br.com.fundatecheroesti21.FHDatabase
+import br.com.fundatecheroesti21.database.FHDatabase
 
 import br.com.fundatecheroesti21.UserEntity
 

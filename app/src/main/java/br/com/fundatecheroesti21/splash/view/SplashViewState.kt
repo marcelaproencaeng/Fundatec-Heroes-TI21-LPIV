@@ -1,13 +1,9 @@
 package br.com.fundatecheroesti21.splash.view
 
 
+sealed class SplashViewState {
 
-class SplashViewState {
+    object ShowLoginScreen : SplashViewState()
+    object ShowHomeScreen : SplashViewState()
 
-//    object ShowErrorMessage : SplashViewState()
-//    object ShowHomeScreen : SplashViewState()
-//    object ShowLoading : SplashViewState()
-
-    object isSuccess: SplashViewState()
-    object ShowLoginScreen:SplashViewState()
 }

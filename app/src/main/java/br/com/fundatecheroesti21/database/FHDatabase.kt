@@ -1,11 +1,13 @@
-package br.com.fundatecheroesti21
+package br.com.fundatecheroesti21.database
 
 import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import retrofit2.Converter
+import br.com.fundatecheroesti21.App
+import br.com.fundatecheroesti21.UserDao
+import br.com.fundatecheroesti21.UserEntity
 
 @Database(entities = [UserEntity::class], version = 2)
 @TypeConverters(Converters::class)

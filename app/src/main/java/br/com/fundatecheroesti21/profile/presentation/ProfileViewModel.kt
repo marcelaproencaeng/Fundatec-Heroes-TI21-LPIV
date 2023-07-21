@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import br.com.fundatecheroesti21.login.view.LoginActivity
 
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
+import java.util.regex.Pattern
 
 class ProfileViewModel : ViewModel() {
     private val viewS = MutableLiveData<ProfileViewState>()
@@ -14,6 +15,8 @@ class ProfileViewModel : ViewModel() {
 
 
     fun validateInputs(name: String?, email: String?, password: String?) {
+        var patternEmail = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
+        var matcherEmail = patternEmail.matcher(email)
         viewS.value = ProfileViewState.ShowLoading
         if (name.isNullOrBlank() && email.isNullOrBlank() && password.isNullOrBlank()) {
             viewS.value = ProfileViewState.ShowErrorMessage

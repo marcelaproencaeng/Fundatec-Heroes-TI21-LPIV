@@ -17,5 +17,9 @@ interface UserDao {
     fun getCache(): Date
     @Query("DELETE dataLog FROM userTable ")
     fun deletarCache()
+    @Query("SELECT date from userTable)")
+    fun getUserDate():Date?
+    @Query("DELETE from userTable")
+    fun clearCache()
 
 }

@@ -4,12 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.fundatecheroesti21.FHDatabase
 import br.com.fundatecheroesti21.login.domain.LoginUseCase
-import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import br.com.fundatecheroesti21.splash.view.SplashViewState
 import kotlinx.coroutines.launch
-import java.time.LocalTime
 
 class SplashViewModel : ViewModel() {
     private val useCase by lazy { LoginUseCase() }
@@ -26,15 +23,16 @@ class SplashViewModel : ViewModel() {
             }
 
             val isTimeMaior: Boolean = true
-            useCase.validateLogin(
-                isTimeMaior
-                if (!isTimeMaior) {
-                    viewS.
-                }
+            useCase.validateLogin(isTimeMaior)
+            if (!isTimeMaior) {
+                viewS.value = SplashViewState.ShowLoginScreen
+            }
 
         }
 
 
     }
+
+
 }
 
