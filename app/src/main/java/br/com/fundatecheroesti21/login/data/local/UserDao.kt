@@ -1,8 +1,9 @@
-package br.com.fundatecheroesti21
+package br.com.fundatecheroesti21.login.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import br.com.fundatecheroesti21.UserEntity
 import java.util.*
 
 @Dao
@@ -15,10 +16,13 @@ interface UserDao {
 
     @Query("SELECT dataLog FROM userTable")
     fun getCache(): Date
+
     @Query("DELETE dataLog FROM userTable ")
     fun deletarCache()
+
     @Query("SELECT date from userTable)")
-    fun getUserDate():Date?
+    fun getUserDate(): Date?
+
     @Query("DELETE from userTable")
     fun clearCache()
 

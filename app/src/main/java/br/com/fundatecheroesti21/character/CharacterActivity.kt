@@ -1,7 +1,10 @@
 package br.com.fundatecheroesti21.character
 
+
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.activity.viewModels
@@ -14,7 +17,9 @@ import br.com.fundatecheroesti21.home.presentation.CharacterViewModel
 import br.com.fundatecheroesti21.databinding.ActivityCharacterBinding
 import br.com.fundatecheroesti21.home.presentation.model.CharacterViewState
 import br.com.fundatecheroesti21.login.view.LoginActivity
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+
 
 class CharacterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCharacterBinding
@@ -24,6 +29,8 @@ class CharacterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCharacterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         initializeObserver()
         configAdapterSpinner(R.array.heroes_marvel_dc_array, binding.spinnerMarvelDc)
@@ -94,7 +101,8 @@ class CharacterActivity : AppCompatActivity() {
 
     private fun showSnackError() {
         binding.pbLoading.hide()
-        Snackbar.make(binding.root, R.string.character_error_message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(binding.root, R.string.character_error_message, Snackbar.LENGTH_LONG)
+            .show()
     }
 
     private fun showLoading() {
@@ -108,5 +116,7 @@ class CharacterActivity : AppCompatActivity() {
         finish()
     }
 
+
 }
+
 

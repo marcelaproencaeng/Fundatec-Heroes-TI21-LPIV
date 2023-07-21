@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import br.com.fundatecheroesti21.App
-import br.com.fundatecheroesti21.UserDao
+import br.com.fundatecheroesti21.login.data.local.UserDao
 import br.com.fundatecheroesti21.UserEntity
 
 @Database(entities = [UserEntity::class], version = 2)

@@ -1,4 +1,4 @@
-package br.com.fundatecheroesti21.database.converter
+package br.com.fundatecheroesti21.database.converters
 
 import androidx.room.TypeConverter
 import java.util.*

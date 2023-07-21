@@ -1,4 +1,4 @@
-package br.com.fundatecheroesti21.login.data.remote.repository
+package br.com.fundatecheroesti21.login.data.local.repository
 
 
 import android.util.Log
@@ -7,8 +7,8 @@ import br.com.fundatecheroesti21.database.FHDatabase
 
 import br.com.fundatecheroesti21.UserEntity
 
-import br.com.fundatecheroesti21.login.data.remote.LoginResponse
-import br.com.fundatecheroesti21.login.data.remote.UserRequest
+import br.com.fundatecheroesti21.login.data.local.LoginResponse
+import br.com.fundatecheroesti21.login.data.local.UserRequest
 
 import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 
@@ -92,12 +92,18 @@ class LoginRepository {
         }
     }
 
-    suspend fun validateCache(isTimeMaior: Boolean) {
+//    suspend fun getCacheDate(): Date? {
+//        return withContext(Dispatchers.IO) {
+//            database.userDao().getUserDate()
+//        }
+//    }
+
+        suspend fun validateCache(isTimeMaior: Boolean) {
         val user: List<UserEntity> = database.userDao().getUser()
         val dataCacheResponse = database.userDao().getCache().time
         val dataNow = Date().time
-        val diff = dataNow - dataCacheResponse
-        val secondsTime = diff / 1000
+        val timeResponse = dataNow - dataCacheResponse
+        val secondsTime = timeResponse / 1000
         val minutesTime = secondsTime / 60
         if (minutesTime > 10) {
             cleanCache(user, isTimeMaior)

@@ -1,6 +1,6 @@
 package br.com.fundatecheroesti21.login.domain
 
-import br.com.fundatecheroesti21.login.data.remote.repository.LoginRepository
+import br.com.fundatecheroesti21.login.data.local.repository.LoginRepository
 
 class LoginUseCase {
     private val repository by lazy { LoginRepository() }

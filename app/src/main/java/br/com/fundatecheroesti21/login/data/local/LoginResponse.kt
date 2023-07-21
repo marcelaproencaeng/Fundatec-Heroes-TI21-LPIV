@@ -1,4 +1,4 @@
-package br.com.fundatecheroesti21.login.data.remote
+package br.com.fundatecheroesti21.login.data.local
 
 import com.squareup.moshi.JsonClass
 

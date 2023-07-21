@@ -19,6 +19,10 @@ class HomeActivity : AppCompatActivity() {
         binding.homeViewPager.adapter = adapter
         binding.homeTabLayout.setupWithViewPager(binding.homeViewPager)
 
+        binding.btCharacter.setOnClickListener {
+            startActivity(Intent(this@HomeActivity,CharacterActivity::class.java))
+        }
+
         configButton()
     }
 
