@@ -1,4 +1,4 @@
-package br.com.fundatecheroesti21.splash.view
+package br.com.fundatecheroesti21.splash.presentation.model
 
 
 sealed class SplashViewState {

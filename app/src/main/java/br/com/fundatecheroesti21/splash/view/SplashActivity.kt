@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatecheroesti21.login.view.LoginActivity
 import br.com.fundatecheroesti21.splash.presentation.SplashViewModel
-import br.com.fundatecheroesti21.splash.view.SplashViewState
+import br.com.fundatecheroesti21.splash.presentation.model.SplashViewState
 
 
 class SplashActivity : AppCompatActivity() {

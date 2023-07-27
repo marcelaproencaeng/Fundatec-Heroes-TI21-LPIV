@@ -17,11 +17,14 @@
             android:name=".home.view.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".character.CharacterActivity"
+            android:name=".login.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".profile.view.ProfileActivity"
-            android:exported="true" />
+            android:name=".character.CharacterActivity"
+            android:exported="false" />
+<!--    <activity-->
+<!--        android:name=".profile.view.ProfileActivity"-->
+<!--        android:exported="true" />-->
         <activity
             android:name=".login.view.LoginActivity"
             android:name=".splash.view.SplashActivity"

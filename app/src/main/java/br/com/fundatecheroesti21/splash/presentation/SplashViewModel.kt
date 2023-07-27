@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatecheroesti21.splash.domain.IsValidCacheUseCase
-import br.com.fundatecheroesti21.splash.view.SplashViewState
+import br.com.fundatecheroesti21.splash.presentation.model.SplashViewState
 import kotlinx.coroutines.launch
 
 class SplashViewModel : ViewModel() {

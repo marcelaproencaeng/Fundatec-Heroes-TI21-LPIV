@@ -4,19 +4,15 @@ package br.com.fundatecheroesti21.newcharacter
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatec.core.show
-import br.com.fundatecheroesti21.home.presentation.CharacterViewModel
-import br.com.fundatecheroesti21.databinding.ActivityCharacterBinding
+import br.com.fundatecheroesti21.databinding.ActivityNewCharacterBinding
 import com.bumptech.glide.Glide
 
 
 class NewCharacterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewCharacterBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewCharacterBinding.inflate(layoutInflater)
