@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             )
         }
         binding.tvNewHere.setOnClickListener{
-            showProfile()
+            showHome()
         }
     }
 
@@ -81,10 +81,10 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-    private fun showProfile(){
-        binding.pbLoading.hide()
-        val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
+//    private fun showProfile(){
+//        binding.pbLoading.hide()
+//        val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
+//        startActivity(intent)
+//        finish()
+//    }
 }

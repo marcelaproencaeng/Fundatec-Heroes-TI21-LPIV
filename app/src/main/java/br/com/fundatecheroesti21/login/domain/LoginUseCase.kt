@@ -19,18 +19,38 @@ class LoginUseCase {
         return userExists
     }
 
-    suspend fun saveUserLocal(email: String, password: String) {
-        val loginResponse = repository.login(email, password)
-        val it = repository.getUserId(idExists = true)
+//    suspend fun saveUserLocal(email: String, password: String) {
+//        val loginResponse = repository.login(email, password)
+//        val it = repository.getUserId(userIdExists : Boolean)
+//        val user = loginResponse?.let {
+//            User(
+//                it.id,
+//                loginResponse.name,
+//                loginResponse.email,
+//                loginResponse.password
+//            )
+//        }
+//        // TODO: validação de existência de usuário na API
+//        localData.saveUser(user!!)
+//
+//    }
+
+    suspend fun saveUser(email: String, password: String) {
+        val loginResponse = repository.login(
+            email,
+            password
+        )
+        if (loginResponse == null) {
+
+        }
         val user = loginResponse?.let {
             User(
-                it.idExists,
+                id.Int,
                 loginResponse.name,
                 loginResponse.email,
                 loginResponse.password
             )
         }
-        // TODO: validação de existência de usuário na API
         localData.saveUser(user!!)
 
     }
@@ -50,7 +70,7 @@ class LoginUseCase {
     }
 
     fun getUserId(): Int {
-        return repository.getUserId()
+        return repository.getUserIdExists()
     }
 
 }

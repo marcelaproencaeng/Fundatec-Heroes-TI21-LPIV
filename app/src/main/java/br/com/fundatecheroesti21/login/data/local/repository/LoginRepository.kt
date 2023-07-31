@@ -52,6 +52,7 @@ class LoginRepository {
             }
         }
     }
+
     private suspend fun saveUser(user: Response<LoginResponse>) {
         return withContext(Dispatchers.IO) {
             if (user.isSuccessful) {
@@ -63,16 +64,19 @@ class LoginRepository {
             }
         }
     }
+
     suspend fun getCacheDate(): Date? {
         return withContext(Dispatchers.IO) {
             database.userDao().getUserDate()
         }
     }
+
     suspend fun clearCache() {
         return withContext(Dispatchers.IO) {
             database.userDao().clearCache()
         }
     }
+
     private fun LoginResponse.userResponseToEntity(): UserEntity {
         return UserEntity(
             name = name,
@@ -80,6 +84,7 @@ class LoginRepository {
             password = password,
         )
     }
+
     suspend fun userSQLite() {
         return withContext(Dispatchers.IO) {
             try {
@@ -110,17 +115,20 @@ class LoginRepository {
 //        }
 //    }
 
-     suspend fun userCheckExists(userExists: Boolean): Boolean {
+    suspend fun userCheckExists(userExists: Boolean): Boolean {
         val user = database.userDao().getUser()
         if (user == null) {
             return !userExists
         }
         return true
     }
-    suspend fun getUserId(idExists:Boolean):Boolean{
-        val idUser=database.userDao().getUserId()
-        if(idUser==null){
-            return !idExists
+
+
+    fun getUserId(userIdExists:Boolean): Boolean {
+        val id = database.userDao().getUserId()
+        if (id == null) {
+
+            return !userIdExists
         }
         return true
     }
