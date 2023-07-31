@@ -4,7 +4,8 @@ package br.com.fundatecheroesti21.login.data.local.repository
 import android.util.Log
 import br.com.fundatecheroesti21.database.FHDatabase
 import br.com.fundatecheroesti21.UserEntity
-import br.com.fundatecheroesti21.login.data.local.LoginResponse
+import br.com.fundatecheroesti21.login.data.remote.LoginResponse
+import br.com.fundatecheroesti21.login.data.local.UserRequest
 import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -34,23 +35,23 @@ class LoginRepository {
         }
     }
 
-//    suspend fun createUser(name: String, email: String, password: String): Boolean {
-//        return withContext(Dispatchers.IO) {
-//            try {
-//                val response = client.createUser(
-//                    UserRequest(
-//                        name = name,
-//                        email = email,
-//                        password = password,
-//                    )
-//                )
-//                response.isSuccessful
-//            } catch (exception: Exception) {
-//                Log.e("login", exception.message.orEmpty())
-//                false
-//            }
-//        }
-//    }
+    suspend fun createUser(name: String, email: String, password: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = client.createUser(
+                    UserRequest(
+                        name = name,
+                        email = email,
+                        password = password,
+                    )
+                )
+                response.isSuccessful
+            } catch (exception: Exception) {
+                Log.e("login", exception.message.orEmpty())
+                false
+            }
+        }
+    }
     private suspend fun saveUser(user: Response<LoginResponse>) {
         return withContext(Dispatchers.IO) {
             if (user.isSuccessful) {
@@ -109,10 +110,17 @@ class LoginRepository {
 //        }
 //    }
 
-    suspend fun userCheckExists(userExists: Boolean): Boolean {
+     suspend fun userCheckExists(userExists: Boolean): Boolean {
         val user = database.userDao().getUser()
         if (user == null) {
             return !userExists
+        }
+        return true
+    }
+    suspend fun getUserId(idExists:Boolean):Boolean{
+        val idUser=database.userDao().getUserId()
+        if(idUser==null){
+            return !idExists
         }
         return true
     }

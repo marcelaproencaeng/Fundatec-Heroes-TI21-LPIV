@@ -6,7 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatec.core.hide
 import br.com.fundatec.core.show
-import br.com.fundatecheroesti21.character.CharacterActivity
 import br.com.fundatecheroesti21.profile.presentation.ProfileViewModel
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import br.com.fundatecheroesti21.R
@@ -41,7 +40,6 @@ class ProfileActivity : AppCompatActivity() {
             when (viewS) {
                 ProfileViewState.ShowNameErrorMessage -> showNameError()
                 ProfileViewState.ShowErrorMessage -> showSnackError()
-                ProfileViewState.ShowNameErrorMessage -> showNameError()
                 ProfileViewState.ShowEmailErrorMessage -> showEmailError()
                 ProfileViewState.ShowPasswordErrorMessage -> showPasswordError()
                 ProfileViewState.ShowLoading -> showLoading()
@@ -75,9 +73,12 @@ class ProfileActivity : AppCompatActivity() {
         Snackbar.make(binding.root, R.string.login_error_message, Snackbar.LENGTH_LONG).show()
     }
 
+    //Tela para cadastro do usuário,
+    // ao cadastrar um novo usuário devemos ser
+    // redirecionados para a tela de login utilizando o finish()
     private fun showLogin() {
         binding.pbLoading.hide()
-
+        startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
         finish()
     }
 

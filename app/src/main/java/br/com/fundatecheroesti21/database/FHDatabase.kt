@@ -1,6 +1,6 @@
 package br.com.fundatecheroesti21.database
+import br.com.fundatecheroesti21.database.converters.Converter
 
-import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -10,7 +10,7 @@ import br.com.fundatecheroesti21.login.data.local.UserDao
 import br.com.fundatecheroesti21.UserEntity
 
 @Database(entities = [UserEntity::class], version = 2)
-@TypeConverters(Converters::class)
+@TypeConverters(Converter::class)
 abstract class FHDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 

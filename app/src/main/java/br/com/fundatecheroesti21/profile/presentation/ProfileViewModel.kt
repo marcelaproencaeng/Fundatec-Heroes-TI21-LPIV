@@ -26,6 +26,10 @@ class ProfileViewModel : ViewModel() {
             viewS.value = ProfileViewState.ShowNameErrorMessage
             return
         }
+        if (!matcherEmail.matches()) {
+            viewS.value = ProfileViewState.ShowEmailErrorMessage
+            return
+        }
         if (email.isNullOrBlank()) {
             viewS.value = ProfileViewState.ShowEmailErrorMessage
             return

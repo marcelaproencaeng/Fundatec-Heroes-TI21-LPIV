@@ -14,6 +14,9 @@ interface UserDao {
     @Query("SELECT * from  userTable")
     fun getUser(): List<UserEntity>
 
+    @Query("SELECT * from userTable")
+    fun getUserId(): List<UserEntity>
+
 //    @Query("SELECT dataLog FROM userTable")
 //    fun getCache(): Date
 

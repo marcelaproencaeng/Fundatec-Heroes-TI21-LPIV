@@ -1,6 +1,6 @@
 package br.com.fundatecheroesti21.login.data.local.repository
 
-import br.com.fundatecheroesti21.login.data.local.LoginResponse
+import br.com.fundatecheroesti21.login.data.remote.LoginResponse
 import br.com.fundatecheroesti21.login.data.local.UserRequest
 import retrofit2.Response
 import retrofit2.http.Body
