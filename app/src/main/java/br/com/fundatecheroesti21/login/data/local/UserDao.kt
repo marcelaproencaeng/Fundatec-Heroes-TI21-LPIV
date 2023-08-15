@@ -8,14 +8,26 @@ import java.util.*
 
 @Dao
 interface UserDao {
+//  @Insert
+//    fun insertUser(userEntity: UserEntity)
+//
+//    @Query("SELECT * from  userTable")
+//    fun getUser(): List<UserEntity>
+//
+//    @Query("SELECT date from userTable")
+//    fun getUserDate(): Date?
+//
+//    @Query("DELETE from userTable")
+//    fun clearCache()
+//}
     @Insert
     fun insertUser(userEntity: UserEntity)
 
     @Query("SELECT * from  userTable")
     fun getUser(): List<UserEntity>
 
-    @Query("SELECT * from userTable")
-    fun getUserId(): List<UserEntity>
+//    @Query("SELECT * from userTable")
+//    fun getUserId(): List<UserEntity>
 
 //    @Query("SELECT dataLog FROM userTable")
 //    fun getCache(): Date

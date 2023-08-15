@@ -13,9 +13,11 @@ import retrofit2.Response
 import java.util.*
 
 class LoginRepository {
+
     private val database: FHDatabase by lazy {
         FHDatabase.getInstance()
     }
+
 
     private val client =
         RetrofitNetworkClient
@@ -34,6 +36,8 @@ class LoginRepository {
             }
         }
     }
+
+
 
     suspend fun createUser(name: String, email: String, password: String): Boolean {
         return withContext(Dispatchers.IO) {
@@ -64,6 +68,7 @@ class LoginRepository {
             }
         }
     }
+
 
     suspend fun getCacheDate(): Date? {
         return withContext(Dispatchers.IO) {
@@ -96,12 +101,6 @@ class LoginRepository {
 
         }
     }
-
-//    suspend fun getCacheDate(): Date? {
-//        return withContext(Dispatchers.IO) {
-//            database.userDao().getUserDate()
-//        }
-//    }
 
 //        suspend fun validateCache(isTimeMaior: Boolean) {
 //        val user: List<UserEntity> = database.userDao().getUser()

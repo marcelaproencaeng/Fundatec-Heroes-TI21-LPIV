@@ -97,4 +97,15 @@ class ProfileActivity : AppCompatActivity() {
     //   }
 
     //  }
+//    Agora todas as nossas telas vão ser integradas com a api
+//
+//Tela para cadastro do usuário, ao cadastrar um novo usuário devemos ser redirecionado para a tela de login utilizando o finish()
+//Tela de splash deve consultar no banco de dados se já existe um usuário se existir e o tempo do ultimo login
+// for maior que 10 minutos devemos levar o usuário para a tela de login, caso não exista o usuário no banco de dados
+// devemos levar o usuário direto para tela de login
+//Tela de login, ao fazer o login devemos salvar o id do usuário no banco de dados, pois vamos precisar desse id para salvar/buscar/deletar os personagens
+//Tela de cadastro de um personagem agora deve salvar o personagem na api, após salvar um novo personagem devemos limpar a tabela utilizada como cache e devemos navegar para a tela de home.
+//Tela de listagem deve listar o personagem buscando os dados da API, nessa tela iremos utilizar o viewpager(tabs) para ter a separação dos personagens que são heróis ou vilões, antes de buscar na api devemos verificar se já existe uma lista de personagens no banco de dados, caso não exista devemos buscar na API, também possuimos uma regra onde devemos verificar se o cache foi preenchido a mais de 10 minutos caso tenha não devemos buscar as informações no cache e sim na api.
+//Devemos adicionar uma implementação nos cards que ao realizar um swipe nós devemos remover o personagem da lista e remover ele chamando a API reponsavel por deletar
+//Todas as interações com a api devem possuir um loader na app.
 }

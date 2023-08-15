@@ -17,6 +17,7 @@ import br.com.fundatecheroesti21.profile.view.ProfileActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityLoginBinding
 
     private val viewModel: LoginViewModel by viewModels()
@@ -43,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
             showHome()
         }
     }
+
 
     private fun initializeObserver() {
         viewModel.state.observe(this) { viewState ->

@@ -17,4 +17,5 @@ class HomeViewPager(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return CharacterFragment.newInstance("Fragment $position")
     }
+
 }

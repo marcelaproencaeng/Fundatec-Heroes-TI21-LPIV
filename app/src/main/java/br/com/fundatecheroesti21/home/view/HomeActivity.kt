@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this@HomeActivity,CharacterActivity::class.java))
         }
 
-//        configButton()
+       configButton()
     }
 
     private fun configButton() {
