@@ -3,6 +3,7 @@ package br.com.fundatecheroesti21.heroRegister.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.fundatecheroesti21.character.data.domain.CharacterUseCase
+import br.com.fundatecheroesti21.heroRegister.presentation.model.HeroRegisterViewState
 import java.util.regex.Pattern
 
 class HeroesRegisterViewModel {
@@ -11,10 +12,8 @@ class HeroesRegisterViewModel {
     val state: LiveData<HeroRegisterViewState> = viewState
     private val usecase by lazy { CharacterUseCase() }
 
-    fun validateInputs(
-        name: String?, description: String?, age: String?, birth_date: String?,
-        select_heroType: String?, select_univerType: String?, url_image: String
-    ) {
+    fun validateInputs(name: String?, description: String?, age: String?, birth_date: String?,
+                       select_heroType: String?, select_univerType: String?, url_image: String) {
         var patternAge = Pattern.compile("[0-9]")
         var matcherAge = patternAge.matcher(age)
         var patternBirthDate = Pattern.compile("\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4}|\\d{8}")
@@ -24,8 +23,7 @@ class HeroesRegisterViewModel {
         var matcherUrlImage = patternUrlImage.matcher(url_image)
         viewState.value = HeroRegisterViewState.ShowLoading
     }
-    if (name.isNullOrBlank() && description.isNullOrBlank() && age.toString()
-    .isNullOrBlank() && birth_date.toString().isNullOrBlank()) {
+    if (name.isNullOrBlank() && description.isNullOrBlank() && age.toString().isNullOrBlank() && birth_date.toString().isNullOrBlank()) {
         viewState.value = HeroRegisterViewState.ShowMessageError
         return
     }

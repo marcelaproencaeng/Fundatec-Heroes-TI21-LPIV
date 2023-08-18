@@ -14,7 +14,7 @@ class LocalData {
 
     val p = App.context.getSharedPreferences("bd", Context.MODE_PRIVATE)
 
-    fun getUserId(): Int {
+    fun getUserId(user: User): Int {
         val userString = p.getString("user", "")
         val characterFromPreferences: User = moshi.adapter(User::class.java)
             .fromJson(userString)!!

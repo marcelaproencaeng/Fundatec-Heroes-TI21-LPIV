@@ -3,7 +3,7 @@ package br.com.fundatecheroesti21.character.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.fundatecheroesti21.character.data.domain.CharacterModel
+import br.com.fundatecheroesti21.character.data.remote.CharacterModel
 import br.com.fundatecheroesti21.databinding.CharacterListItemBinding
 
 class CharacterListAdapter : RecyclerView.Adapter<CharacterViewHolder>() {

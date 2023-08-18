@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-
     private val viewModel: LoginViewModel by viewModels()
 
     private val database:FHDatabase by lazy {

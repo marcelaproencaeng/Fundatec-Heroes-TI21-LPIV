@@ -31,11 +31,7 @@ internal class SplashActivity :AppCompatActivity(){
         startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
         finish()
     }
-//Tela de splash deve consultar no banco de dados se já existe um usuário
-// se existir e o tempo do ultimo login for maior que 10 minutos devemos
-// levar o usuário para a tela de login,
-// caso não exista o usuário no banco de dados
-// devemos levar o usuário direto para tela de login
+
     private fun showLogin() {
         startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
         finish()

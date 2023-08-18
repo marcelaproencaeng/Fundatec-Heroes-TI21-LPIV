@@ -17,7 +17,7 @@ class LoginViewModel : ViewModel() {
     private val viewState = MutableLiveData<LoginViewState>()
     val state: LiveData<LoginViewState> = viewState
 
-     fun validateInputs(email: String?, password: String?) {
+    fun validateInputs(email: String?, password: String?) {
         viewState.value = LoginViewState.ShowLoading
         var patternEmail = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
         var matcherEmail = patternEmail.matcher(email)
@@ -26,8 +26,8 @@ class LoginViewModel : ViewModel() {
             viewState.value = LoginViewState.ShowErrorMessage
             return
         }
-        if(!matcherEmail.matches()){
-            viewState.value=LoginViewState.ShowEmailErrorMessage
+        if (!matcherEmail.matches()) {
+            viewState.value = LoginViewState.ShowEmailErrorMessage
             return
         }
 
@@ -47,11 +47,16 @@ class LoginViewModel : ViewModel() {
 
         fetchLogin(email, password)
     }
+//    suspend fun isUserExist(userExists: Boolean): Boolean {
+//        repository.userCheckExists(userExists);
+//        return userExists
+//    }
 
     private fun fetchLogin(email: String, password: String) {
         viewModelScope.launch {
             val isSuccess = useCase.login(email = email, password = password)
             if (isSuccess) {
+
                 viewState.value = LoginViewState.ShowHomeScreen
 
             } else {
@@ -59,4 +64,6 @@ class LoginViewModel : ViewModel() {
             }
         }
     }
+
+
 }

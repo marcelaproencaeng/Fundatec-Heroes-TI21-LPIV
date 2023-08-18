@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import br.com.fundatecheroesti21.character.data.domain.CharacterModel
+import br.com.fundatecheroesti21.character.data.remote.CharacterModel
 import br.com.fundatecheroesti21.databinding.FragmentCharacterBinding
 
 private const val ARG_PARAM1 = "param1"

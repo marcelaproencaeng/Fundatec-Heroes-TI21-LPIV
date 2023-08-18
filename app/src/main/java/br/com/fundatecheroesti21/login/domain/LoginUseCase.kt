@@ -1,77 +1,42 @@
 package br.com.fundatecheroesti21.login.domain
 
 import br.com.fundatecheroesti21.login.data.local.repository.LoginRepository
-import br.com.fundatecheroesti21.profile.data.local.LocalData
-import br.com.fundatecheroesti21.profile.data.local.User
+
+
 
 class LoginUseCase {
-    //    Tela de login, ao fazer o login devemos salvar o id do usuário no banco de dados,
-//    pois vamos precisar desse id para salvar/buscar/deletar os personagens
+//    private val localData by lazy { LocalData() }
     private val repository by lazy { LoginRepository() }
-    private val localData by lazy { LocalData() }
 
     suspend fun login(email: String, password: String): Boolean {
         return repository.login(email = email, password = password)
     }
 
-    suspend fun isUserExist(userExists: Boolean): Boolean {
+//    suspend fun verifyTimeLogCache(isTimeMaior: Boolean): Boolean {
+//        repository.validateCache(isTimeMaior)
+//        return isTimeMaior
+//    }
+
+    suspend fun verifyUserExist(userExists: Boolean): Boolean {
         repository.userCheckExists(userExists);
         return userExists
     }
-
-//    suspend fun saveUserLocal(email: String, password: String) {
-//        val loginResponse = repository.login(email, password)
-//        val it = repository.getUserId(userIdExists : Boolean)
-//        val user = loginResponse?.let {
-//            User(
-//                it.id,
-//                loginResponse.name,
-//                loginResponse.email,
-//                loginResponse.password
-//            )
-//        }
-//        // TODO: validação de existência de usuário na API
-//        localData.saveUser(user!!)
-//
-//    }
-
-    suspend fun saveUser(email: String, password: String) {
-        val
-        val loginResponse = repository.login(
-            email,
-            password
-        )
-        if (loginResponse == null) {
-
-        }
-        val user = loginResponse?.let {
-            User(
-                id.Int,
-                loginResponse.name,
-                loginResponse.email,
-                loginResponse.password
-            )
-        }
-        localData.saveUser(user!!)
-
+    suspend fun createUser(name: String, email: String, password: String): Boolean {
+        return repository.createUser(name, email, password)
     }
-
-//    private suspend fun getUser(): String {
-//        repository.userCheckExists(userExists: Boolean)
-//        return true
-//
-//    }
-
-
-    suspend fun validateLogin(isTimeMaior: Boolean): Boolean {
-        repository.validateCache(isTimeMaior)
-        return isTimeMaior
-
-
+    suspend fun getIdUser(): Int {
+        val id: Int = repository.getUsuario()
+        return id
     }
-
-    fun getUserId(): Int {
-        return repository.getUserIdExists()
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+

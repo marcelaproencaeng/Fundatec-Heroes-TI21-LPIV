@@ -1,11 +1,9 @@
 package br.com.fundatecheroesti21.login.data.local.repository
 
-
 import android.util.Log
 import br.com.fundatecheroesti21.database.FHDatabase
 import br.com.fundatecheroesti21.UserEntity
 import br.com.fundatecheroesti21.login.data.remote.LoginResponse
-import br.com.fundatecheroesti21.login.data.local.UserRequest
 import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -37,23 +35,53 @@ class LoginRepository {
         }
     }
 
-
-
     suspend fun createUser(name: String, email: String, password: String): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                val response = client.createUser(
-                    UserRequest(
-                        name = name,
-                        email = email,
-                        password = password,
-                    )
-                )
+
+                val response = client.createUser(name, email, password)
+                saveUser(response)
                 response.isSuccessful
             } catch (exception: Exception) {
                 Log.e("login", exception.message.orEmpty())
                 false
             }
+        }
+    }
+
+    //      suspend fun validateCache(isTimeMaior: Boolean): Boolean {
+//        return withContext(Dispatchers.IO) {
+//            val dataCache = database.userDao().getCache()?.time?:0
+//            val dataHoje = Date().time
+//            val diff = dataHoje - dataCache
+//            val seconds = diff / 1000
+//            val minutes = seconds / 60
+//            if (minutes <= 10) {
+//                cleanReuse(isTimeMaior)
+//            }
+//            isTimeMaior
+//        }
+//    }
+    suspend fun getUsuario(): Int {
+        return withContext(Dispatchers.IO) {
+            val id: Int = database.userDao().getId()
+            id
+        }
+    }
+
+//    private fun cleanReuse(isTimeMenor: Boolean): Boolean {
+//        database.userDao().clearCache()
+//        return !isTimeMenor;
+//
+//    }
+
+    suspend fun userCheckExists(userExists: Boolean): Boolean {
+        return withContext(Dispatchers.IO) {
+            val user = database.userDao().getUser()
+            if (user == null) {
+                !userExists
+            }
+            true
         }
     }
 
@@ -90,50 +118,16 @@ class LoginRepository {
         )
     }
 
-    suspend fun userSQLite() {
-        return withContext(Dispatchers.IO) {
-            try {
-                database.userDao().getUser()
-            } catch (exception: Exception) {
-                Log.e("SQLite", exception.message.orEmpty())
-                false
-            }
 
-        }
-    }
-
-//        suspend fun validateCache(isTimeMaior: Boolean) {
-//        val user: List<UserEntity> = database.userDao().getUser()
-//        val dataCacheResponse = database.userDao().getCache().time
-//        val dataNow = Date().time
-//        val timeResponse = dataNow - dataCacheResponse
-//        val secondsTime = timeResponse / 1000
-//        val minutesTime = secondsTime / 60
-//        if (minutesTime > 10) {
-//            cleanCache(user, isTimeMaior)
+//    suspend fun userSQLiteExists(name: String, email: String, password: String): Boolean {
+//        return withContext(Dispatchers.IO) {
+//            try {
+//                database.userDao().getUser()
+//            } catch (exception: Exception) {
+//                Log.e("SQLite", exception.message.orEmpty())
+//                false
+//            }
+//
 //        }
-//    }
-
-    suspend fun userCheckExists(userExists: Boolean): Boolean {
-        val user = database.userDao().getUser()
-        if (user == null) {
-            return !userExists
-        }
-        return true
-    }
-
-
-    fun getUserId(userIdExists:Boolean): Boolean {
-        val id = database.userDao().getUserId()
-        if (id == null) {
-
-            return !userIdExists
-        }
-        return true
-    }
-
-//    private suspend fun cleanCache(user: List<UserEntity>, isTimeMenor: Boolean): Boolean {
-//        database.userDao().clearCache()
-//        return !isTimeMenor;
 //    }
 }
