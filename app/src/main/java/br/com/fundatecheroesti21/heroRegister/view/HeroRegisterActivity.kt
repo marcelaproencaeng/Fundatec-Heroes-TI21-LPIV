@@ -1,14 +1,13 @@
 package br.com.fundatecheroesti21.heroRegister.view
 
-
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatecheroesti21.R
+import br.com.fundatecheroesti21.databinding.ActivityHeroRegisterBinding
 import br.com.fundatecheroesti21.heroRegister.presentation.HeroesRegisterViewModel
 import br.com.fundatecheroesti21.heroRegister.presentation.model.HeroRegisterViewState
-import br.com.fundatecheroesti21.home.view.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 
 class HeroRegisterActivity : AppCompatActivity() {
@@ -19,7 +18,6 @@ class HeroRegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHeroRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initializeObserver()
 
 
@@ -39,7 +37,8 @@ class HeroRegisterActivity : AppCompatActivity() {
     private fun initializeObserver() {
         viewModel.state.observe(this) { viewState ->
             when (viewState) {
-                is HeroRegisterViewState.ShowHomeScreen -> showHome()
+                is
+                HeroRegisterViewState.ShowHomeScreen -> showHome()
                 HeroRegisterViewState.ShowLoading -> showLoading()
                 HeroRegisterViewState.ShowNameError -> showNameError()
                 HeroRegisterViewState.ShowMessageError -> showSnackError()
@@ -113,6 +112,4 @@ class HeroRegisterActivity : AppCompatActivity() {
         binding.pbLoading.hide()
         binding.description.error = getString(R.string.register_description_error_message)
     }
-
-
 }

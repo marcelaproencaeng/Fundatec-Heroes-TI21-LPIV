@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -15,6 +16,9 @@
         android:theme="@style/Theme.FundatecHeroesTI21"
         tools:targetApi="33">
         <activity
+            android:name=".HeroRegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.view.HomeActivity"
             android:exported="false" />
         <activity
@@ -23,17 +27,18 @@
         <activity
             android:name=".profile.view.ProfileActivity"
             android:exported="true" />
-        <activity android:name=".login.view.LoginActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".login.view.LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".splash.view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
