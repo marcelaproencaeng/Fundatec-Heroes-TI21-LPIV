@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 @Dao
-class CharacterDao {
+interface CharacterDao {
     @Insert
     fun insertCharacter(characterEntity: CharacterEntity)
 
