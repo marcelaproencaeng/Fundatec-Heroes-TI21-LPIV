@@ -10,8 +10,7 @@
         android:layout_height="236dp"
         android:layout_marginBottom="20dp"
         android:background="@color/Blue"
-        android:padding="5dp"
-        app:cardCornerRadius="12dp">
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/tv_name"
