@@ -16,7 +16,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="@dimen/cardview_compat_inset_shadow"
         android:scaleType="center"
-        android:src="@drawable/spiderMan"></ImageView>
+        android:src="@drawable/logo_marvel"></ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

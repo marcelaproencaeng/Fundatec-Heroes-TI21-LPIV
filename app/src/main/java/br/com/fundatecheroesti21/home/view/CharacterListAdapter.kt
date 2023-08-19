@@ -1,10 +1,10 @@
-package br.com.fundatecheroesti21.character.view
+package br.com.fundatecheroesti21.home.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.fundatecheroesti21.character.data.remote.CharacterModel
 import br.com.fundatecheroesti21.databinding.CharacterListItemBinding
+import br.com.fundatecheroesti21.home.presentation.model.CharacterModel
 
 class CharacterListAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
     private val list: MutableList<CharacterModel> = mutableListOf()

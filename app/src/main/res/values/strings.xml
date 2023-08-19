@@ -21,9 +21,18 @@
     <string name="inserir_personagem">inserir personagem</string>
     <string name="character_error_message">Preeencha os campos para criar um novo personagem</string>
     <string name="name">Name</string>
-A    <string name="age">Age</string>
+    <string name="age">Age</string>
     <string name="birth_date">Birth Date</string>
     <string name="url_image">url_image</string>
+    <string name="action_error">ActionError</string>
+    <string name="url_error_message">url image Error</string>
+    <string name="hero_error_message">Hero Type</string>
+    <string name="universe_error_message">Message Error</string>
+    <string name="register_age_error_message">Age Error Message</string>
+    <string name="register_birthDate_error_message">"Birth Date Error "</string>
+    <string name="register_name_error_message">Name Error Message</string>
+    <string name="register_description_error_message">Description Error Message</string>
+    <string name="login_error_message_hero_register">Login Error Message Hero Register</string>
     <string-array name="heroes_marvel_dc_array">
         <item>Selecione um universo</item>
         <item>Marvel</item>
@@ -31,8 +40,8 @@ A    <string name="age">Age</string>
     </string-array>
     <string-array name="heroes_villains_array">
         <item>Selecione uma categoria</item>
-        <item>Herói</item>
-        <item>Vilão</item>
+        <item>Hero</item>
+        <item>Villain</item>
     </string-array>
 </resources>
 

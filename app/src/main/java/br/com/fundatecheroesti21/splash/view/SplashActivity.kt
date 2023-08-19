@@ -10,7 +10,7 @@ import br.com.fundatecheroesti21.login.view.LoginActivity
 import br.com.fundatecheroesti21.splash.presentation.SplashViewModel
 import br.com.fundatecheroesti21.splash.presentation.model.SplashViewState
 
-internal class SplashActivity :AppCompatActivity(){
+internal class SplashActivity : AppCompatActivity() {
     private val viewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

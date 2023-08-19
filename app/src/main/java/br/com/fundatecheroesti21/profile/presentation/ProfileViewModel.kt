@@ -1,13 +1,10 @@
 package br.com.fundatecheroesti21.profile.presentation
 
-import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.fundatecheroesti21.login.domain.LoginUseCase
-import br.com.fundatecheroesti21.login.view.LoginActivity
-
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
@@ -22,7 +19,6 @@ class ProfileViewModel : ViewModel() {
         var patternEmail = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
         var matcherEmail = patternEmail.matcher(email)
 
-        viewS.value = ProfileViewState.ShowLoading
         if (name.isNullOrBlank() && email.isNullOrBlank() && password.isNullOrBlank()) {
             viewS.value = ProfileViewState.ShowErrorMessage
             return
@@ -49,14 +45,13 @@ class ProfileViewModel : ViewModel() {
     }
 
     private fun fetchLogin(name: String, email: String, password: String) {
-//        viewS.value = ProfileViewState.ShowLoginScreen
-        viewS.value = ProfileViewState.ShowHomeScreen
+        viewS.value = ProfileViewState.ShowLoading
 
         viewModelScope.launch {
             val isCreated = usecase.createUser(name, email, password)
 
             if (isCreated) {
-                viewS.value = ProfileViewState.ShowHomeScreen
+                viewS.value = ProfileViewState.ShowLoginScreen
             } else {
                 viewS.value = ProfileViewState.ShowErrorMessage
             }

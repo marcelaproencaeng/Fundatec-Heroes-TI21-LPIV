@@ -1,13 +1,17 @@
 package br.com.fundatecheroesti21.heroRegister.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import br.com.fundatec.core.errorMessages
+import br.com.fundatec.core.hide
+import br.com.fundatec.core.show
 import br.com.fundatecheroesti21.R
 import br.com.fundatecheroesti21.databinding.ActivityHeroRegisterBinding
 import br.com.fundatecheroesti21.heroRegister.presentation.HeroesRegisterViewModel
 import br.com.fundatecheroesti21.heroRegister.presentation.model.HeroRegisterViewState
+import br.com.fundatecheroesti21.home.view.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 
 class HeroRegisterActivity : AppCompatActivity() {
@@ -27,8 +31,8 @@ class HeroRegisterActivity : AppCompatActivity() {
                 description = binding.description.text.toString(),
                 age = binding.age.text.toString(),
                 birth_date = binding.birthDate.text.toString(),
-                select_heroType = binding.selectHero.onItemSelectedListener.toString(),
-                select_univerType = binding.selectUniverse.onItemSelectedListener.toString(),
+                select_heroType = binding.selectHero.selectedItem.toString(),
+                select_univerType = binding.selectUniverse.selectedItem.toString(),
                 url_image = binding.imgHero.text.toString()
             )
         }

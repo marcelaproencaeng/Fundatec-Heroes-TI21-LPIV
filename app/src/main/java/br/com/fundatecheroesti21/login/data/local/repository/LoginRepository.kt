@@ -2,7 +2,7 @@ package br.com.fundatecheroesti21.login.data.local.repository
 
 import android.util.Log
 import br.com.fundatecheroesti21.database.FHDatabase
-import br.com.fundatecheroesti21.UserEntity
+import br.com.fundatecheroesti21.login.data.local.UserEntity
 import br.com.fundatecheroesti21.login.data.remote.LoginResponse
 import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
@@ -112,6 +112,7 @@ class LoginRepository {
 
     private fun LoginResponse.userResponseToEntity(): UserEntity {
         return UserEntity(
+            id = id,
             name = name,
             email = email,
             password = password,

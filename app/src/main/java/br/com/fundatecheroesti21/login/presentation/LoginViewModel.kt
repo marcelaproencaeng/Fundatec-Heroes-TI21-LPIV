@@ -56,9 +56,7 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
             val isSuccess = useCase.login(email = email, password = password)
             if (isSuccess) {
-
                 viewState.value = LoginViewState.ShowHomeScreen
-
             } else {
                 viewState.value = LoginViewState.ShowErrorMessage
             }

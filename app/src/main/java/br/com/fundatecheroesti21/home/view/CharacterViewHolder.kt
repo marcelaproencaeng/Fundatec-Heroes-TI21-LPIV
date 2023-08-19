@@ -1,8 +1,8 @@
-package br.com.fundatecheroesti21.character.view
+package br.com.fundatecheroesti21.home.view
 
 import androidx.recyclerview.widget.RecyclerView
-import br.com.fundatecheroesti21.character.data.remote.CharacterModel
 import br.com.fundatecheroesti21.databinding.CharacterListItemBinding
+import br.com.fundatecheroesti21.home.presentation.model.CharacterModel
 
 class CharacterViewHolder(private val binding: CharacterListItemBinding) :
     RecyclerView.ViewHolder(binding.root) {

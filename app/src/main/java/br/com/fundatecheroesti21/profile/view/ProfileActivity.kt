@@ -1,16 +1,14 @@
 package br.com.fundatecheroesti21.profile.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import br.com.fundatec.core.hide
 import br.com.fundatec.core.show
-import br.com.fundatecheroesti21.profile.presentation.ProfileViewModel
-import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import br.com.fundatecheroesti21.R
 import br.com.fundatecheroesti21.databinding.ActivityProfileBinding
-import br.com.fundatecheroesti21.login.view.LoginActivity
+import br.com.fundatecheroesti21.profile.presentation.ProfileViewModel
+import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
 import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
@@ -78,7 +76,6 @@ class ProfileActivity : AppCompatActivity() {
     // redirecionados para a tela de login utilizando o finish()
     private fun showLogin() {
         binding.pbLoading.hide()
-        startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
         finish()
     }
 

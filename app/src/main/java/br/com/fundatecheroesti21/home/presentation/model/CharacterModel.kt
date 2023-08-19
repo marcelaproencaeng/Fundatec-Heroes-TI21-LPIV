@@ -1,4 +1,4 @@
-package br.com.fundatecheroesti21.character.data.remote
+package br.com.fundatecheroesti21.home.presentation.model
 
 data class CharacterModel(
     val name: String,

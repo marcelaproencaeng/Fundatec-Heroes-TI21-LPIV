@@ -13,7 +13,6 @@ import br.com.fundatecheroesti21.databinding.ActivityLoginBinding
 import br.com.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatecheroesti21.login.presentation.LoginViewModel
 import br.com.fundatecheroesti21.login.presentation.model.LoginViewState
-import br.com.fundatecheroesti21.profile.view.ProfileActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
@@ -21,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
-    private val database:FHDatabase by lazy {
+    private val database: FHDatabase by lazy {
         FHDatabase.getInstance()
     }
 
@@ -30,16 +29,16 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.e("teste",database.userDao().getUser().toString())
+        Log.e("teste", database.userDao().getUser().toString())
         initializeObserver()
 
         binding.btLogin.setOnClickListener {
-             viewModel.validateInputs(
+            viewModel.validateInputs(
                 password = binding.pwd.text.toString(),
                 email = binding.email.text.toString(),
             )
         }
-        binding.tvNewHere.setOnClickListener{
+        binding.tvNewHere.setOnClickListener {
             showHome()
         }
     }
