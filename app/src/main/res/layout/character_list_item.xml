@@ -3,12 +3,20 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/lime"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingBottom="@dimen/cardview_default_radius"
+    android:paddingStart="@dimen/cardview_default_radius"
+    android:paddingEnd="@dimen/cardview_default_radius"
+    android:paddingTop="@dimen/cardview_default_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="136dp"
         android:layout_height="236dp"
         android:layout_marginBottom="20dp"
+        app:cardiCornerRadius="4dp"
         android:background="@color/Blue"
         android:padding="5dp">
 
@@ -17,35 +25,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="10sp"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardview"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nome do personagem" />
+            tools:text="Marvel"
+            android:textStyle="bold"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
-            android:layout_width="167dp"
-            android:layout_height="279dp"
-            android:background="@drawable/gradiente"
-            android:foreground="@drawable/logo_marvel"
-            app:cardBackgroundColor="@color/lime"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nome do personagem" >
-
-
-        <ImageView
-            android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo_marvel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:foreground="@drawable/logo_marvel"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:cardBackgroundColor="@color/lime"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:layout_below="@+id/cardview"
+                android:src="@drawable/logo_marvel"
+                app:cardiCornerRadius='12dp'
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
