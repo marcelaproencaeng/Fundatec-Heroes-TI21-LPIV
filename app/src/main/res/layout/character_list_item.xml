@@ -34,30 +34,8 @@
             app:cardBackgroundColor="@color/lime"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Nome do personagem" />
+            tools:text="Nome do personagem" >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/lime"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <TextView
-            android:id="@+id/img_hero"
-            android:layout_width="9dp"
-            android:layout_height="0dp"
-            android:layout_marginTop_ToBottomOf="parent"
-            android:layout_marginStart_ToStartOf="parent"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="12dp"
-            app:card/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_constraintBottom_ToBottomOf="parent"
-            android:background="@color/lime"
-            app:cardCornerRadius="12dp" />
 
         <ImageView
             android:id="@+id/name"

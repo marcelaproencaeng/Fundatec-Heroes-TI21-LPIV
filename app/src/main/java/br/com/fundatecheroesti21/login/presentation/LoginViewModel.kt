@@ -10,8 +10,6 @@ import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
 class LoginViewModel : ViewModel() {
-//    Tela de login, ao fazer o login devemos salvar o id do usuário no banco de dados,
-//    pois vamos precisar desse id para salvar/buscar/deletar os personagens
 
     private val useCase by lazy { LoginUseCase() }
     private val viewState = MutableLiveData<LoginViewState>()
