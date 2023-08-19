@@ -40,17 +40,9 @@ class LoginViewModel : ViewModel() {
             viewState.value = LoginViewState.ShowPasswordErrorMessage
             return
         }
-//        } else{
-//            useCase.saveUserLocal(email!!, password)
-//            viewState.value = LoginViewState.ShowSuccess
-//        }
 
         fetchLogin(email, password)
     }
-//    suspend fun isUserExist(userExists: Boolean): Boolean {
-//        repository.userCheckExists(userExists);
-//        return userExists
-//    }
 
     private fun fetchLogin(email: String, password: String) {
         viewModelScope.launch {

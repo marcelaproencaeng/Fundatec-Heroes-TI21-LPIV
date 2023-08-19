@@ -49,19 +49,7 @@ class LoginRepository {
         }
     }
 
-    //      suspend fun validateCache(isTimeMaior: Boolean): Boolean {
-//        return withContext(Dispatchers.IO) {
-//            val dataCache = database.userDao().getCache()?.time?:0
-//            val dataHoje = Date().time
-//            val diff = dataHoje - dataCache
-//            val seconds = diff / 1000
-//            val minutes = seconds / 60
-//            if (minutes <= 10) {
-//                cleanReuse(isTimeMaior)
-//            }
-//            isTimeMaior
-//        }
-//    }
+
     suspend fun getUsuario(): Int {
         return withContext(Dispatchers.IO) {
             val id: Int = database.userDao().getId()
@@ -69,11 +57,7 @@ class LoginRepository {
         }
     }
 
-//    private fun cleanReuse(isTimeMenor: Boolean): Boolean {
-//        database.userDao().clearCache()
-//        return !isTimeMenor;
-//
-//    }
+
 
     suspend fun userCheckExists(userExists: Boolean): Boolean {
         return withContext(Dispatchers.IO) {
@@ -118,17 +102,4 @@ class LoginRepository {
             password = password,
         )
     }
-
-
-//    suspend fun userSQLiteExists(name: String, email: String, password: String): Boolean {
-//        return withContext(Dispatchers.IO) {
-//            try {
-//                database.userDao().getUser()
-//            } catch (exception: Exception) {
-//                Log.e("SQLite", exception.message.orEmpty())
-//                false
-//            }
-//
-//        }
-//    }
 }
