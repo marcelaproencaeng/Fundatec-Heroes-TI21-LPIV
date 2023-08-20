@@ -85,7 +85,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showProfile() {
         binding.pbLoading.hide()
-
         val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
         startActivity(intent)
     }

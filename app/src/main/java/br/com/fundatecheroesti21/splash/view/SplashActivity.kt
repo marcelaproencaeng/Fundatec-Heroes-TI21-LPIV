@@ -17,14 +17,14 @@ internal class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-//         fun initializeObserver(){
+
         viewModel.splash.observe(this) { viewState ->
             when (viewState) {
                 SplashViewState.ShowHomeScreen -> showHome()
                 SplashViewState.ShowLoginScreen -> showLogin()
             }
         }
-//        }
+
     }
 
     private fun showHome() {

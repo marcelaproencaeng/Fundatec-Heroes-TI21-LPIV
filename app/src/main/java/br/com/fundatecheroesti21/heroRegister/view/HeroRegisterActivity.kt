@@ -41,7 +41,7 @@ class HeroRegisterActivity : AppCompatActivity() {
     private fun initializeObserver() {
         viewModel.state.observe(this) { viewState ->
             when (viewState) {
-                is
+
                 HeroRegisterViewState.ShowHomeScreen -> showHome()
                 HeroRegisterViewState.ShowLoading -> showLoading()
                 HeroRegisterViewState.ShowNameError -> showNameError()
@@ -98,8 +98,6 @@ class HeroRegisterActivity : AppCompatActivity() {
 
     private fun showHome() {
         binding.pbLoading.hide()
-        val intent = Intent(this@HeroRegisterActivity, HomeActivity::class.java)
-        startActivity(intent)
         finish()
     }
 

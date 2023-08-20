@@ -1,10 +1,10 @@
 package br.com.fundatecheroesti21.character.data.repository
 
 import android.util.Log
+import br.com.fundatec.fundatecheroesti21.network.RetrofitNetworkClient
 import br.com.fundatecheroesti21.character.data.remote.CharacterResponse
 import br.com.fundatecheroesti21.database.FHDatabase
 import br.com.fundatecheroesti21.home.presentation.model.CharacterModel
-import br.com.fundatecheroesti21.network.RetrofitNetworkClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -38,9 +38,9 @@ class CharacterRepository {
         }
     }
 
-    suspend fun addPersonagem(id: Int, characterRequest: CharacterRequest): Boolean {
+    suspend fun addPersonagem(characterRequest: CharacterRequest): Boolean {
         return withContext(Dispatchers.IO) {
-            val response = client.criarPersonagem(id, characterRequest)
+            val response = client.criarPersonagem(database.userDao().getId(), characterRequest)
             response.isSuccessful
         }
     }

@@ -23,7 +23,7 @@ class CharacterUseCase {
             name, description, age, birth_date,
             select_heroType, select_univerType, url_image
         )
-        return characterRepository.addPersonagem(id, characterRequest)
+        return characterRepository.addPersonagem(characterRequest)
     }
 
     private fun convert(
