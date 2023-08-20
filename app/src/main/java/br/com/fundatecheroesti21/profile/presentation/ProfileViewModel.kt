@@ -3,39 +3,63 @@ package br.com.fundatecheroesti21.profile.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
+import androidx.lifecycle.viewModelScope
+import br.com.fundatecheroesti21.login.domain.LoginUseCase
+import br.com.fundatecheroesti21.login.domain.UserUseCase
 import br.com.fundatecheroesti21.profile.presentation.model.ProfileViewState
+import kotlinx.coroutines.launch
+import java.util.regex.Pattern
 
 class ProfileViewModel : ViewModel() {
-    private val viewS = MutableLiveData<ProfileViewState>()
-    val s: LiveData<ProfileViewState> = viewS
 
+    private val useCase by lazy { UserUseCase() }
+    private val viewState = MutableLiveData<ProfileViewState>()
+    val state: LiveData<ProfileViewState> = viewState
 
     fun validateInputs(name: String?, email: String?, password: String?) {
-        viewS.value = ProfileViewState.ShowLoading
-        if (name.isNullOrBlank() && email.isNullOrBlank() && password.isNullOrBlank()) {
-            viewS.value = ProfileViewState.ShowErrorMessage
+        var patternEmail = Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
+        var matcherEmail = patternEmail.matcher(email)
+
+        viewState.value = ProfileViewState.ShowLoading
+        if (email.isNullOrBlank() && password.isNullOrBlank() && name.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowErrorMessage
             return
         }
+
         if (name.isNullOrBlank()) {
-            viewS.value = ProfileViewState.ShowNameErrorMessage
+            viewState.value = ProfileViewState.ShowNameErrorMessage
             return
         }
+
+        if (!matcherEmail.matches()) {
+            viewState.value = ProfileViewState.ShowEmailErrorMessage
+            return
+        }
+
         if (email.isNullOrBlank()) {
-            viewS.value = ProfileViewState.ShowEmailErrorMessage
+            viewState.value = ProfileViewState.ShowEmailErrorMessage
             return
         }
+
         if (password.isNullOrBlank()) {
-            viewS.value = ProfileViewState.ShowPasswordErrorMessage
+            viewState.value = ProfileViewState.ShowPasswordErrorMessage
             return
         }
-        // if(email.contains("@") && (email.contains(".com"))
-        //fazer uma extension com o booleano
 
         fetchLogin(name, email, password)
     }
 
     private fun fetchLogin(name: String, email: String, password: String) {
-        viewS.value = ProfileViewState.ShowHomeScreen
+        viewModelScope.launch {
+            val isSuccess = useCase.createUser(name = name, email = email, password = password)
+            if (isSuccess) {
+                viewState.value = ProfileViewState.ShowLoginScreen
+            } else {
+                viewState.value = ProfileViewState.ShowErrorMessage
+            }
+        }
+
     }
 }
+
+

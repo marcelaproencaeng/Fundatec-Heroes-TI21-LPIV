@@ -1,0 +1,38 @@
+package br.com.fundatecheroesti21.login.domain
+
+import br.com.fundatecheroesti21.login.data.local.repository.LoginRepository
+
+
+class LoginUseCase {
+    //    private val localData by lazy { LocalData() }
+    private val repository by lazy { LoginRepository() }
+
+    suspend fun login(email: String, password: String): Boolean {
+        return repository.login(email = email, password = password)
+    }
+
+    suspend fun verifyUserExist(userExists: Boolean): Boolean {
+        repository.userCheckExists(userExists);
+        return userExists
+    }
+
+    suspend fun createUser(name: String, email: String, password: String): Boolean {
+        return repository.createUser(name, email, password)
+    }
+
+    suspend fun getIdUser(): Int {
+        val id: Int = repository.getUsuario()
+        return id
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

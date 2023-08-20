@@ -17,30 +17,31 @@
     <string name="login_name_error_message">Nome inválido</string>
     <string name="bem_vindo">Bem Vindo</string>
     <string name="selector">selector</string>
-    <string name="description">description</string>
+    <string name="description">Description</string>
     <string name="inserir_personagem">inserir personagem</string>
-    <string-array name="heroes_Marvel_Dc_array">
-        <item>Spider-Man</item>
-        <item>DeadPool</item>
-        <item>Thor</item>
-        <item>Capitão-America</item>
-        <item>X-Men</item>
-        <item>Hulk</item>
-        <item>Wolverine</item>
-        <item>Pantera-Negra</item>
+    <string name="character_error_message">Preeencha os campos para criar um novo personagem</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="url_image">url_image</string>
+    <string name="action_error">ActionError</string>
+    <string name="url_error_message">url image Error</string>
+    <string name="hero_error_message">Hero Type</string>
+    <string name="universe_error_message">Message Error</string>
+    <string name="register_age_error_message">Age Error Message</string>
+    <string name="register_birthDate_error_message">"Birth Date Error "</string>
+    <string name="register_name_error_message">Name Error Message</string>
+    <string name="register_description_error_message">Description Error Message</string>
+    <string name="login_error_message_hero_register">Login Error Message Hero Register</string>
+    <string-array name="heroes_marvel_dc_array">
+        <item>Selecione um universo</item>
+        <item>Marvel</item>
+        <item>DC</item>
     </string-array>
-    <string-array name="heroes_Villains_array">
-        <item>Batman</item>
-        <item>Superman</item>
-        <item>The Flash</item>
-        <item>Batgirl</item>
-        <item>Aquaman</item>
-        <item>Coringa</item>
-        <item>Arlequina</item>
-        <item>Supergirl</item>
-        <item>Lanterna Verde</item>
-        <item>Robin</item>
-        <item>Hera Venenosa</item>
+    <string-array name="heroes_villains_array">
+        <item>Selecione uma categoria</item>
+        <item>Hero</item>
+        <item>Villain</item>
     </string-array>
 </resources>
 
