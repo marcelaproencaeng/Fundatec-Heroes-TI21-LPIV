@@ -1,6 +1,5 @@
-package br.com.fundatecheroesti21.network
+package br.com.fundatec.fundatecheroesti21.network
 
-import android.net.sip.SipErrorCode.TIME_OUT
 import br.com.fundatecheroesti21.BuildConfig
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -11,7 +10,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val TIME_OUT = 60L
-
 
 object RetrofitNetworkClient {
 
@@ -31,11 +29,10 @@ object RetrofitNetworkClient {
     private fun httpClint(): OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(logginInterceptor())
-            .connectTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
-            .readTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
-            .writeTimeout(TIME_OUT.toLong(), TimeUnit.SECONDS)
+            .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+            .readTimeout(TIME_OUT, TimeUnit.SECONDS)
+            .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
             .build()
-
 
     private fun logginInterceptor() =
         HttpLoggingInterceptor().apply {
@@ -57,9 +54,3 @@ object RetrofitNetworkClient {
         .build()
 
 }
-
-
-
-
-
-

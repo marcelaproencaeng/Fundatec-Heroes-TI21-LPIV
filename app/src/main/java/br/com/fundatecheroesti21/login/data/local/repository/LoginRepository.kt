@@ -1,10 +1,11 @@
 package br.com.fundatecheroesti21.login.data.local.repository
 
 import android.util.Log
+import br.com.fundatec.fundatecheroesti21.network.RetrofitNetworkClient
 import br.com.fundatecheroesti21.database.FHDatabase
 import br.com.fundatecheroesti21.login.data.local.UserEntity
 import br.com.fundatecheroesti21.login.data.remote.LoginResponse
-import br.com.fundatecheroesti21.network.RetrofitNetworkClient
+import br.com.fundatecheroesti21.login.data.remote.UserRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
@@ -38,9 +39,7 @@ class LoginRepository {
     suspend fun createUser(name: String, email: String, password: String): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-
-                val response = client.createUser(name, email, password)
-                saveUser(response)
+                val response = client.postUser(UserRequest(name, email, password))
                 response.isSuccessful
             } catch (exception: Exception) {
                 Log.e("login", exception.message.orEmpty())

@@ -13,7 +13,7 @@ class CharacterViewHolder(private val binding: CharacterListItemBinding) :
         binding.tvName.text = character.name
         Glide.with(binding.root.context)
             .load(character.url)
-            .into(binding.image)
+            .into(binding.imgHeroe)
     }
 
 }

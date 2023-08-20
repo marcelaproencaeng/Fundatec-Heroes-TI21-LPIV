@@ -13,6 +13,7 @@ import br.com.fundatecheroesti21.databinding.ActivityLoginBinding
 import br.com.fundatecheroesti21.home.view.HomeActivity
 import br.com.fundatecheroesti21.login.presentation.LoginViewModel
 import br.com.fundatecheroesti21.login.presentation.model.LoginViewState
+import br.com.fundatecheroesti21.profile.view.ProfileActivity
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity() {
@@ -39,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             )
         }
         binding.tvNewHere.setOnClickListener {
-            showHome()
+            showProfile()
         }
     }
 
@@ -80,6 +81,13 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun showProfile() {
+        binding.pbLoading.hide()
+
+        val intent = Intent(this@LoginActivity, ProfileActivity::class.java)
+        startActivity(intent)
     }
 
 }

@@ -34,7 +34,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun initializeObserver() {
-        viewModel.s.observe(this) { viewS ->
+        viewModel.state.observe(this) { viewS ->
             when (viewS) {
                 ProfileViewState.ShowNameErrorMessage -> showNameError()
                 ProfileViewState.ShowErrorMessage -> showSnackError()
